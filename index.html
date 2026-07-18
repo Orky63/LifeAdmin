@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeAdmin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <h1>LifeAdmin</h1>
+      <p class="tagline">Never miss what matters</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="add-section">
+      <button class="btn btn-primary" id="addItemBtn" onclick="showAddModal()">+ Add Item</button>
+    </section>
+
+    <section class="categories" id="categoriesContainer">
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h2 id="modalTitle">Add Item</h2>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <form id="itemForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label for="itemTitle">Title</label>
+          <input type="text" id="itemTitle" required placeholder="e.g. Car MOT due">
+        </div>
+        <div class="form-group">
+          <label for="itemCategory">Category</label>
+          <select id="itemCategory" required>
+            <option value="">Select category...</option>
+            <option value="MOT">MOT</option>
+            <option value="Passport">Passport</option>
+            <option value="Driving Licence">Driving Licence</option>
+            <option value="Insurance">Insurance</option>
+            <option value="NHS Appointments">NHS Appointments</option>
+            <option value="Council Tax">Council Tax</option>
+            <option value="Warranties">Warranties</option>
+            <option value="Subscriptions">Subscriptions</option>
+            <option value="Bills">Bills</option>
+            <option value="Home Maintenance">Home Maintenance</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="itemDate">Due Date</label>
+          <input type="date" id="itemDate" required>
+        </div>
+        <div class="form-group">
+          <label for="itemNotes">Notes</label>
+          <textarea id="itemNotes" rows="3" placeholder="Optional notes..."></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
